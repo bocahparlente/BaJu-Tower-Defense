@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dt2v70lx8yurb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1wqxt"]
+top_radius = 0.15283203
+bottom_radius = 0.15283203
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3og7y"]
+albedo_color = Color(0.63408935, 0.25619027, 0.06940297, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_1wqxt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crh02"]
+albedo_color = Color(0.20784314, 0.627451, 0, 1)
+
+[node name="Tree" type="Node3D" unique_id=101199485]
+
+[node name="Trunk" type="MeshInstance3D" parent="." unique_id=47890297]
+transform = Transform3D(0.3, 0, 0, 0, 0.5, 0, 0, 0, 0.3, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_1wqxt")
+surface_material_override/0 = SubResource("StandardMaterial3D_3og7y")
+
+[node name="Leaves" type="MeshInstance3D" parent="." unique_id=1353897177]
+transform = Transform3D(0.5665434, 0, 0, 0, 0.66993666, 0, 0, 0, 0.4056577, -0.0031177402, 1.1183206, 0)
+mesh = SubResource("PrismMesh_1wqxt")
+surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
