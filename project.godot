@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Prototype Tower Defense"
+config/name="BaJu Tower Defense"
 run/main_scene="uid://bjnuw4ktecifp"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"

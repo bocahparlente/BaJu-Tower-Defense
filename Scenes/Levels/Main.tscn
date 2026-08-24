@@ -1,163 +1,163 @@
 [gd_scene format=3 uid="uid://bjnuw4ktecifp"]
 
 [ext_resource type="PackedScene" uid="uid://fnh7vfm84laq" path="res://Scenes/Levels/level_platform.tscn" id="1_t355s"]
-[ext_resource type="PackedScene" uid="uid://dt2v70lx8yurb" path="res://Scenes/Mesh/Tree.tscn" id="2_07780"]
-[ext_resource type="PackedScene" uid="uid://c8ojnr4lo7why" path="res://Scenes/Mesh/portal.tscn" id="3_d31q8"]
-[ext_resource type="PackedScene" uid="uid://c8rb153dasjvy" path="res://Scenes/Mesh/tower.tscn" id="4_07780"]
+[ext_resource type="Script" uid="uid://ycfcj83h68oy" path="res://Scripts/camera_3d.gd" id="2_d31q8"]
+[ext_resource type="PackedScene" uid="uid://c8ojnr4lo7why" path="res://Scenes/Mesh/Portal/portal.tscn" id="3_d31q8"]
+[ext_resource type="PackedScene" uid="uid://c8rb153dasjvy" path="res://Scenes/Mesh/Towers/tower.tscn" id="4_07780"]
+[ext_resource type="PackedScene" uid="uid://dl3l8qoqtcs0x" path="res://Scenes/Mesh/Trees/SM_Env_Tree_01.tscn" id="5_4ih0k"]
+[ext_resource type="PackedScene" uid="uid://c6su02onp4kc7" path="res://Scenes/Mesh/Trees/SM_Env_Tree_02.tscn" id="6_mv52a"]
+[ext_resource type="PackedScene" uid="uid://bsuikwcdp6qwb" path="res://Scenes/Mesh/Trees/SM_Env_Tree_03.tscn" id="7_otbr7"]
+[ext_resource type="PackedScene" uid="uid://b2mnlwyfss0ml" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Pine_01.tscn" id="8_5wxa7"]
+[ext_resource type="PackedScene" uid="uid://g4cuj1y6swe4" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Pine_02.tscn" id="9_dm2qe"]
+[ext_resource type="PackedScene" uid="uid://x3laoc21fx1a" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_01.tscn" id="10_t65c0"]
+[ext_resource type="PackedScene" uid="uid://h5fx6v7cqq4t" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_02.tscn" id="11_jnw2c"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wqxt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crh02"]
 albedo_color = Color(0.49949694, 0.32896474, 0.12574515, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_4ih0k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.5, 0, 0.086, 0, 0, 0, 0, 0, 0, 7.5, 0, -5.902304, 0, 0, 0, 0, 0, 0, 10.61009, 0, -5.8730526),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
 [node name="Main" type="Node3D" unique_id=843518588]
 
 [node name="Platform" parent="." unique_id=1051689224 instance=ExtResource("1_t355s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1391117774]
-transform = Transform3D(0.62339723, -0.67454356, 0.39543256, 0.094085164, 0.56676733, 0.8184881, -0.77622414, -0.47303888, 0.41678575, 3.3049498, 5.706446, 4.2396116)
+transform = Transform3D(0.70710677, -0.35355338, 0.6123724, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.6123724, 3.3049498, 5.706446, 4.2396116)
 fov = 60.6
 near = 0.5
+script = ExtResource("2_d31q8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=541450764]
 transform = Transform3D(0.92229295, 0.3194483, -0.21755138, 0, 0.5628876, 0.8265335, 0.3864917, -0.7623059, 0.5191473, 0, 7.671977, 0)
 shadow_enabled = true
 
-[node name="Tree" parent="." unique_id=101199485 instance=ExtResource("2_07780")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8948944, 5.9604645e-08, 2.4243774)
-
-[node name="Tree2" parent="." unique_id=2034438844 instance=ExtResource("2_07780")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5970104, 5.9604645e-08, 2.4243774)
-
-[node name="Tree3" parent="." unique_id=1331430950 instance=ExtResource("2_07780")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5860727, 5.9604645e-08, 1.428545)
-
-[node name="Tree4" parent="." unique_id=725464711 instance=ExtResource("2_07780")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5746565, 0, -0.51242185)
-
 [node name="Portal" parent="." unique_id=598249634 instance=ExtResource("3_d31q8")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.623, -0.4, 3.5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.623, 0, 3.5)
 
 [node name="Tower" parent="." unique_id=1169851751 instance=ExtResource("4_07780")]
-transform = Transform3D(0.59718144, 0, 0, 0, 0.3829791, 0, 0, 0, 0.6612519, 1.4772643, 0, 2.5136738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4772643, 0, 2.5136738)
 
-[node name="Path" type="MeshInstance3D" parent="." unique_id=1861417219]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.5, 0.1, 3.5)
+[node name="EnemyPath" type="FoldableContainer" parent="." unique_id=1998124752]
+offset_right = 24.0
+offset_bottom = 32.0
+
+[node name="Path" type="MeshInstance3D" parent="EnemyPath" unique_id=1861417219]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path2" type="MeshInstance3D" parent="." unique_id=1975861212]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.4998932, 0.1, 3.5)
+[node name="Path2" type="MeshInstance3D" parent="EnemyPath" unique_id=1975861212]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.4998932, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path3" type="MeshInstance3D" parent="." unique_id=1581324708]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.1, 3.5)
+[node name="Path3" type="MeshInstance3D" parent="EnemyPath" unique_id=1581324708]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path4" type="MeshInstance3D" parent="." unique_id=1237875805]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5, 0.1, 3.5)
+[node name="Path4" type="MeshInstance3D" parent="EnemyPath" unique_id=1237875805]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path5" type="MeshInstance3D" parent="." unique_id=256593346]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.1, 3.5)
+[node name="Path5" type="MeshInstance3D" parent="EnemyPath" unique_id=256593346]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path6" type="MeshInstance3D" parent="." unique_id=693338223]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.1, 3.5)
+[node name="Path6" type="MeshInstance3D" parent="EnemyPath" unique_id=693338223]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path7" type="MeshInstance3D" parent="." unique_id=566707285]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5, 0.1, 3.5)
+[node name="Path7" type="MeshInstance3D" parent="EnemyPath" unique_id=566707285]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path8" type="MeshInstance3D" parent="." unique_id=204056619]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.1, 3.5)
+[node name="Path8" type="MeshInstance3D" parent="EnemyPath" unique_id=204056619]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 3.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path11" type="MeshInstance3D" parent="." unique_id=1458340562]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.1, 0.5)
+[node name="Path9" type="MeshInstance3D" parent="EnemyPath" unique_id=2137193684]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 2.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path12" type="MeshInstance3D" parent="." unique_id=1269560521]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5, 0.1, 0.5)
+[node name="Path10" type="MeshInstance3D" parent="EnemyPath" unique_id=670976243]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 1.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path13" type="MeshInstance3D" parent="." unique_id=74858247]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.1, 0.5)
+[node name="Path11" type="MeshInstance3D" parent="EnemyPath" unique_id=956159291]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 0.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path14" type="MeshInstance3D" parent="." unique_id=2144994939]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.1, 0.5)
+[node name="Path12" type="MeshInstance3D" parent="EnemyPath" unique_id=2069381940]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -0.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path15" type="MeshInstance3D" parent="." unique_id=2069381940]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5, 0.1, 0.5)
+[node name="Path13" type="MeshInstance3D" parent="EnemyPath" unique_id=2144994939]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -1.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path16" type="MeshInstance3D" parent="." unique_id=956159291]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.1, 0.5)
+[node name="Path14" type="MeshInstance3D" parent="EnemyPath" unique_id=1393730669]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -2.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path9" type="MeshInstance3D" parent="." unique_id=2137193684]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.1, 2.5)
+[node name="Path15" type="MeshInstance3D" parent="EnemyPath" unique_id=13447847]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.5, 0.6, -2.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path10" type="MeshInstance3D" parent="." unique_id=670976243]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.1, 1.5)
+[node name="Path16" type="MeshInstance3D" parent="EnemyPath" unique_id=557047483]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0.6, -2.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path17" type="MeshInstance3D" parent="." unique_id=871931459]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.1, -0.5)
+[node name="Path17" type="MeshInstance3D" parent="EnemyPath" unique_id=972290969]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.5, 0.6, -2.5)
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
-[node name="Path18" type="MeshInstance3D" parent="." unique_id=504983769]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.1, -1.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="Trees" type="FoldableContainer" parent="." unique_id=1513307044]
+offset_right = 24.0
+offset_bottom = 32.0
 
-[node name="Path21" type="MeshInstance3D" parent="." unique_id=1349758243]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5, 0.1, -1.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_01" parent="Trees" unique_id=2004614911 instance=ExtResource("5_4ih0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3191595, 0, -3.3351727)
 
-[node name="Path19" type="MeshInstance3D" parent="." unique_id=363260051]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.1, -1.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_02" parent="Trees" unique_id=1275879007 instance=ExtResource("6_mv52a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.193392, 0, 2.939087)
 
-[node name="Path22" type="MeshInstance3D" parent="." unique_id=216340232]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.1, -2.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_03" parent="Trees" unique_id=990806564 instance=ExtResource("7_otbr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 2)
 
-[node name="Path23" type="MeshInstance3D" parent="." unique_id=1736790970]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5, 0.1, -2.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_Pine_01" parent="Trees" unique_id=1968929263 instance=ExtResource("8_5wxa7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
 
-[node name="Path24" type="MeshInstance3D" parent="." unique_id=1393730669]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.1, -2.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_Pine_02" parent="Trees" unique_id=511138982 instance=ExtResource("9_dm2qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -8)
 
-[node name="Path20" type="MeshInstance3D" parent="." unique_id=1822722481]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.1, -2.5)
-mesh = SubResource("PlaneMesh_1wqxt")
-surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+[node name="SM_Env_Tree_Tall_01" parent="Trees" unique_id=1993524730 instance=ExtResource("10_t65c0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="SM_Env_Tree_Tall_02" parent="Trees" unique_id=1882250486 instance=ExtResource("11_jnw2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1785976551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.3)
+curve = SubResource("Curve3D_4ih0k")
