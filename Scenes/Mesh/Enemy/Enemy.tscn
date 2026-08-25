@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dmh74rmy0glt8"]
+
+[ext_resource type="PackedScene" uid="uid://c1f35ltmkphtc" path="res://Scenes/Mesh/Characters/Character_ShopKeeper_01.tscn" id="1_7mexh"]
+[ext_resource type="Script" uid="uid://c1tma6lgsx053" path="res://Scripts/enemy_hitbox.gd" id="1_gxhlv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1wqxt"]
+height = 1.904541
+
+[node name="PathFollow3D_Enemy" type="PathFollow3D" unique_id=173533188]
+loop = false
+
+[node name="Area3D_Hitbox" type="Area3D" parent="." unique_id=1810671311]
+script = ExtResource("1_gxhlv")
+speed = 1.0
+
+[node name="Character_ShopKeeper_01" parent="Area3D_Hitbox" unique_id=1198972001 instance=ExtResource("1_7mexh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D_Hitbox" unique_id=1041601476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9124756, 0)
+shape = SubResource("CapsuleShape3D_1wqxt")

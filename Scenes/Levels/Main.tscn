@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bjnuw4ktecifp"]
 
+[ext_resource type="Script" uid="uid://cq0fiy3kl5ayn" path="res://Scripts/test_scene.gd" id="1_mv52a"]
 [ext_resource type="PackedScene" uid="uid://fnh7vfm84laq" path="res://Scenes/Levels/level_platform.tscn" id="1_t355s"]
 [ext_resource type="Script" uid="uid://ycfcj83h68oy" path="res://Scripts/camera_3d.gd" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://c8ojnr4lo7why" path="res://Scenes/Mesh/Portal/portal.tscn" id="3_d31q8"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://g4cuj1y6swe4" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Pine_02.tscn" id="9_dm2qe"]
 [ext_resource type="PackedScene" uid="uid://x3laoc21fx1a" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_01.tscn" id="10_t65c0"]
 [ext_resource type="PackedScene" uid="uid://h5fx6v7cqq4t" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_02.tscn" id="11_jnw2c"]
+[ext_resource type="PackedScene" uid="uid://dmh74rmy0glt8" path="res://Scenes/Mesh/Enemy/Enemy.tscn" id="13_otbr7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wqxt"]
 
@@ -18,20 +20,24 @@
 albedo_color = Color(0.49949694, 0.32896474, 0.12574515, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_4ih0k"]
+closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 7.5, 0, 0.086, 0, 0, 0, 0, 0, 0, 7.5, 0, -5.902304, 0, 0, 0, 0, 0, 0, 10.61009, 0, -5.8730526),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.4254026, 0.90464926, 0.29583573, 0, 0, 0, 0, 0, 0, 7.4697647, 0.5, -5.869378, 0, 0, 0, 0, 0, 0, 11.231723, 0.5, -5.839036),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
-point_count = 3
+point_count = 5
 
 [node name="Main" type="Node3D" unique_id=843518588]
+script = ExtResource("1_mv52a")
 
-[node name="Platform" parent="." unique_id=1051689224 instance=ExtResource("1_t355s")]
+[node name="Ground" parent="." unique_id=1051689224 instance=ExtResource("1_t355s")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1391117774]
-transform = Transform3D(0.70710677, -0.35355338, 0.6123724, 0, 0.8660254, 0.5, -0.70710677, -0.35355338, 0.6123724, 3.3049498, 5.706446, 4.2396116)
+transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 7.4723997, 7.493185, 8.101225)
+projection = 1
 fov = 60.6
-near = 0.5
+size = 5.0
+near = 0.073
 script = ExtResource("2_d31q8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=541450764]
@@ -50,86 +56,103 @@ offset_bottom = 32.0
 
 [node name="Path" type="MeshInstance3D" parent="EnemyPath" unique_id=1861417219]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path2" type="MeshInstance3D" parent="EnemyPath" unique_id=1975861212]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.4998932, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path3" type="MeshInstance3D" parent="EnemyPath" unique_id=1581324708]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path4" type="MeshInstance3D" parent="EnemyPath" unique_id=1237875805]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path5" type="MeshInstance3D" parent="EnemyPath" unique_id=256593346]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path6" type="MeshInstance3D" parent="EnemyPath" unique_id=693338223]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path7" type="MeshInstance3D" parent="EnemyPath" unique_id=566707285]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path8" type="MeshInstance3D" parent="EnemyPath" unique_id=204056619]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 3.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path9" type="MeshInstance3D" parent="EnemyPath" unique_id=2137193684]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 2.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path10" type="MeshInstance3D" parent="EnemyPath" unique_id=670976243]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 1.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path11" type="MeshInstance3D" parent="EnemyPath" unique_id=956159291]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, 0.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path12" type="MeshInstance3D" parent="EnemyPath" unique_id=2069381940]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -0.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path13" type="MeshInstance3D" parent="EnemyPath" unique_id=2144994939]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -1.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path14" type="MeshInstance3D" parent="EnemyPath" unique_id=1393730669]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, 0.6, -2.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path15" type="MeshInstance3D" parent="EnemyPath" unique_id=13447847]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.5, 0.6, -2.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path16" type="MeshInstance3D" parent="EnemyPath" unique_id=557047483]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0.6, -2.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
 [node name="Path17" type="MeshInstance3D" parent="EnemyPath" unique_id=972290969]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.5, 0.6, -2.5)
+visible = false
 mesh = SubResource("PlaneMesh_1wqxt")
 surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
 
@@ -161,3 +184,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
 [node name="Path3D" type="Path3D" parent="." unique_id=1785976551]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.3)
 curve = SubResource("Curve3D_4ih0k")
+
+[node name="PathFollow3D_Enemy" parent="Path3D" unique_id=173533188 instance=ExtResource("13_otbr7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052119223, -0.0006349771, -0.00020764838)
