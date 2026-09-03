@@ -1,5 +1,14 @@
 extends Node3D
 
+var enemy_scene = preload("res://Scenes/Mesh/Enemy/enemy_mouse.tscn")
+
+func _ready() -> void:
+	$SpawnTimer.timeout.connect(_on_spawn_timer_timeout)
+
+func _on_spawn_timer_timeout() -> void:
+	var enemy = enemy_scene.instantiate()
+	$Path3D.add_child(enemy)
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var camera = $Camera3D
@@ -22,3 +31,6 @@ func place_marker(pos: Vector3) -> void:
 	marker.mesh.size = Vector3(0.5, 0.5, 0.5)
 	marker.position = pos
 	add_child(marker)
+
+func tower_built() -> void:
+	print("Tower placed!")	

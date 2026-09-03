@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b00ohdytw5ind"]
+
+[ext_resource type="Script" uid="uid://dqb0l06jxobf6" path="res://Scripts/arrow.gd" id="1_xln2a"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1wqxt"]
+
+[node name="Arrow" type="Node3D" unique_id=1918896086]
+script = ExtResource("1_xln2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1024449565]
+transform = Transform3D(0.248, 0, 0, 0, -2.1855694e-08, -0.207, 0, 0.5, -9.048257e-09, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_1wqxt")

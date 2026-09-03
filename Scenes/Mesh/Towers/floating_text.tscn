@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d2pf57aenrmif"]
+
+[ext_resource type="Script" uid="uid://d25ushn12y7el" path="res://Scripts/floating_text.gd" id="1_w0jj6"]
+
+[node name="FloatingText" type="Label3D" unique_id=1206471432]
+text = "+$"
+script = ExtResource("1_w0jj6")

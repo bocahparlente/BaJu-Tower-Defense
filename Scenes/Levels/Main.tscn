@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bjnuw4ktecifp"]
 
-[ext_resource type="Script" uid="uid://cq0fiy3kl5ayn" path="res://Scripts/test_scene.gd" id="1_mv52a"]
+[ext_resource type="Script" uid="uid://cq0fiy3kl5ayn" path="res://Scripts/main.gd" id="1_mv52a"]
 [ext_resource type="PackedScene" uid="uid://fnh7vfm84laq" path="res://Scenes/Levels/level_platform.tscn" id="1_t355s"]
-[ext_resource type="Script" uid="uid://ycfcj83h68oy" path="res://Scripts/camera_3d.gd" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://c8ojnr4lo7why" path="res://Scenes/Mesh/Portal/portal.tscn" id="3_d31q8"]
-[ext_resource type="PackedScene" uid="uid://c8rb153dasjvy" path="res://Scenes/Mesh/Towers/tower.tscn" id="4_07780"]
+[ext_resource type="PackedScene" uid="uid://c8rb153dasjvy" path="res://Scenes/Mesh/Towers/archer_tower.tscn" id="4_07780"]
 [ext_resource type="PackedScene" uid="uid://dl3l8qoqtcs0x" path="res://Scenes/Mesh/Trees/SM_Env_Tree_01.tscn" id="5_4ih0k"]
 [ext_resource type="PackedScene" uid="uid://c6su02onp4kc7" path="res://Scenes/Mesh/Trees/SM_Env_Tree_02.tscn" id="6_mv52a"]
 [ext_resource type="PackedScene" uid="uid://bsuikwcdp6qwb" path="res://Scenes/Mesh/Trees/SM_Env_Tree_03.tscn" id="7_otbr7"]
@@ -12,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://g4cuj1y6swe4" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Pine_02.tscn" id="9_dm2qe"]
 [ext_resource type="PackedScene" uid="uid://x3laoc21fx1a" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_01.tscn" id="10_t65c0"]
 [ext_resource type="PackedScene" uid="uid://h5fx6v7cqq4t" path="res://Scenes/Mesh/Trees/SM_Env_Tree_Tall_02.tscn" id="11_jnw2c"]
+[ext_resource type="PackedScene" uid="uid://88054sujq00h" path="res://Scenes/Mesh/Towers/stone_tower.tscn" id="13_5wxa7"]
+[ext_resource type="PackedScene" uid="uid://bdqepwthiykno" path="res://Scenes/Mesh/Enemy/enemy_mouse.tscn" id="13_dm2qe"]
 [ext_resource type="PackedScene" uid="uid://dmh74rmy0glt8" path="res://Scenes/Mesh/Enemy/Enemy.tscn" id="13_otbr7"]
+[ext_resource type="PackedScene" uid="uid://ctlk5uu647xrs" path="res://Scenes/Mesh/Towers/bank_tower.tscn" id="14_5wxa7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wqxt"]
 
@@ -20,12 +22,11 @@
 albedo_color = Color(0.49949694, 0.32896474, 0.12574515, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_4ih0k"]
-closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.4254026, 0.90464926, 0.29583573, 0, 0, 0, 0, 0, 0, 7.4697647, 0.5, -5.869378, 0, 0, 0, 0, 0, 0, 11.231723, 0.5, -5.839036),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 7.425, 0.5, 0.296, 0, 0, 0, 0, 0, 0, 7.4697647, 0.5, -5.869378, 0, 0, 0, 0, 0, 0, 11.231723, 0.5, -5.839036),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 5
+point_count = 4
 
 [node name="Main" type="Node3D" unique_id=843518588]
 script = ExtResource("1_mv52a")
@@ -33,12 +34,11 @@ script = ExtResource("1_mv52a")
 [node name="Ground" parent="." unique_id=1051689224 instance=ExtResource("1_t355s")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1391117774]
-transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 7.4723997, 7.493185, 8.101225)
+transform = Transform3D(0.7071068, -0.4055798, 0.579228, 0, 0.81915206, 0.57357645, -0.7071068, -0.4055798, 0.579228, 10.294356, 7.493185, 8.101225)
 projection = 1
 fov = 60.6
-size = 5.0
-near = 0.073
-script = ExtResource("2_d31q8")
+size = 10.224
+near = 0.039
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=541450764]
 transform = Transform3D(0.92229295, 0.3194483, -0.21755138, 0, 0.5628876, 0.8265335, 0.3864917, -0.7623059, 0.5191473, 0, 7.671977, 0)
@@ -48,7 +48,7 @@ shadow_enabled = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.623, 0, 3.5)
 
 [node name="Tower" parent="." unique_id=1169851751 instance=ExtResource("4_07780")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4772643, 0, 2.5136738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4999299, 0.8240702, -0.12535763)
 
 [node name="EnemyPath" type="FoldableContainer" parent="." unique_id=1998124752]
 offset_right = 24.0
@@ -181,9 +181,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
 [node name="SM_Env_Tree_Tall_02" parent="Trees" unique_id=1882250486 instance=ExtResource("11_jnw2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
 
-[node name="Path3D" type="Path3D" parent="." unique_id=1785976551]
+[node name="Path3D" type="Path3D" parent="." unique_id=488058943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3.3)
 curve = SubResource("Curve3D_4ih0k")
 
 [node name="PathFollow3D_Enemy" parent="Path3D" unique_id=173533188 instance=ExtResource("13_otbr7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052119223, -0.0006349771, -0.00020764838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+rotation_mode = 0
+
+[node name="EnemyMouse" parent="Path3D" unique_id=2010767460 instance=ExtResource("13_dm2qe")]
+transform = Transform3D(-0.039833657, 0, -0.9992063, 0, 1, 0, 0.9992063, 0, -0.039833657, 0, 0.5, 0)
+
+[node name="Tower2" parent="." unique_id=318710781 instance=ExtResource("13_5wxa7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9836438, 1, -3.571514)
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2078214289]
+wait_time = 2.0
+autostart = true
+
+[node name="BankTower" parent="." unique_id=2125257135 instance=ExtResource("14_5wxa7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33867407, 1, 5.1453266)

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://88054sujq00h"]
+
+[ext_resource type="Script" uid="uid://vrper6fsbpa1" path="res://Scripts/stone_tower.gd" id="2_yih03"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1wqxt"]
+size = Vector3(1, 1.4307861, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3og7y"]
+albedo_color = Color(0.758115, 0.9933451, 0.45498025, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_1wqxt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crh02"]
+albedo_color = Color(0.87058824, 0.08235294, 0.20392157, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1wqxt"]
+radius = 8.0
+
+[node name="StoneTower" type="Node3D" unique_id=1169851751]
+script = ExtResource("2_yih03")
+
+[node name="House" type="MeshInstance3D" parent="." unique_id=1234279226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_1wqxt")
+surface_material_override/0 = SubResource("StandardMaterial3D_3og7y")
+
+[node name="Roof" type="MeshInstance3D" parent="." unique_id=1355442252]
+transform = Transform3D(1.4754337, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8952471, 0)
+mesh = SubResource("PrismMesh_1wqxt")
+surface_material_override/0 = SubResource("StandardMaterial3D_crh02")
+
+[node name="RangeArea" type="Area3D" parent="." unique_id=1480687703]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RangeArea" unique_id=1053408858]
+shape = SubResource("SphereShape3D_1wqxt")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=565423899]

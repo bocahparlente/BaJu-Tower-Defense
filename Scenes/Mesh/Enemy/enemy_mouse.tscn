@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bdqepwthiykno"]
+
+[ext_resource type="PackedScene" uid="uid://fhg2gd62ookb" path="res://Assets/BlenderAssets/mouse1.blend" id="1_6g5d7"]
+[ext_resource type="Script" uid="uid://c1tma6lgsx053" path="res://Scripts/enemy_hitbox.gd" id="1_m2wx0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1wqxt"]
+height = 1.1901855
+
+[node name="EnemyMouse" type="PathFollow3D" unique_id=2010767460]
+
+[node name="Area3DHitbox" type="Area3D" parent="." unique_id=1769337475]
+script = ExtResource("1_m2wx0")
+
+[node name="mouse1" parent="Area3DHitbox" unique_id=1149782452 instance=ExtResource("1_6g5d7")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera" parent="Area3DHitbox/mouse1" index="1" unique_id=990651545]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DHitbox" unique_id=981111338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551, 0)
+shape = SubResource("CapsuleShape3D_1wqxt")
+
+[editable path="Area3DHitbox/mouse1"]

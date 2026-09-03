@@ -4,6 +4,9 @@ extends Area3D
 var health : int = 3
 @export var speed : float = 2.0
 
+func _ready() -> void:
+	add_to_group("enemies")
+	
 func _process(delta: float) -> void:
 	get_parent().progress += speed * delta
 	if get_parent().progress_ratio >= 1.0:

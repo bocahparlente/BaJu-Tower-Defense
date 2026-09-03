@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bso1edjgak6eu"]
+
+[ext_resource type="Script" uid="uid://b6aupeqj24rb5" path="res://Scripts/rock.gd" id="1_n580w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1wqxt"]
+
+[node name="Rock" type="Node3D" unique_id=1517200270]
+script = ExtResource("1_n580w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2084508880]
+mesh = SubResource("SphereMesh_1wqxt")

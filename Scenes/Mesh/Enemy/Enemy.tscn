@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1wqxt"]
 height = 1.904541
 
-[node name="PathFollow3D_Enemy" type="PathFollow3D" unique_id=173533188]
+[node name="Enemy" type="PathFollow3D" unique_id=173533188]
 loop = false
 
 [node name="Area3D_Hitbox" type="Area3D" parent="." unique_id=1810671311]
