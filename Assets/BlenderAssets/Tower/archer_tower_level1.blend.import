@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://fhg2gd62ookb"
-path="res://.godot/imported/mouse1.blend-a07c681467546f9acb08cf8909820bc7.scn"
+uid="uid://buffm0l3nnlra"
+path="res://.godot/imported/archer_tower_level1.blend-047f0d851b21acb5b815e361a7d67001.scn"
 
 [deps]
 
-source_file="res://Assets/BlenderAssets/mouse1.blend"
-dest_files=["res://.godot/imported/mouse1.blend-a07c681467546f9acb08cf8909820bc7.scn"]
+source_file="res://Assets/BlenderAssets/Tower/archer_tower_level1.blend"
+dest_files=["res://.godot/imported/archer_tower_level1.blend-047f0d851b21acb5b815e361a7d67001.scn"]
 
 [params]
 
@@ -39,13 +39,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Light": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

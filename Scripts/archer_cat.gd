@@ -26,7 +26,8 @@ func _process(_delta: float) -> void:
 	enemies_in_range = enemies_in_range.filter(func(e): return is_instance_valid(e))
 	var target = get_nearest_enemy()
 	if target:
-		look_at(target.global_position, Vector3.UP)
+		look_at(target.global_position,Vector3.UP)
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if placing and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:

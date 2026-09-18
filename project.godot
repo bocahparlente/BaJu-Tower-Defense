@@ -20,6 +20,14 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[layer_names]
+
+3d_physics/layer_1="Enemies"
+3d_physics/layer_2="Bullets"
+3d_physics/layer_3="Towers"
+3d_physics/layer_4="Characters"
+3d_physics/layer_5="Environments"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
